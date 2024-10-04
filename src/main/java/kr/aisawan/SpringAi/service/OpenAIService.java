@@ -20,6 +20,8 @@ import java.util.Map;
 public class OpenAIService {
     @Value("${spring.ai.openai.chat.model}")
     private String model;
+    @Value("${spring.ai.openai.chat.temperature}")
+    private Float temperature;
     private final OpenAiChatModel chatModel;
 
 
@@ -32,7 +34,7 @@ public class OpenAIService {
 
             ChatResponse chatResponse = chatModel.call(promptTemplate.create(OpenAiChatOptions.builder()
                     .withModel(model)
-                    .withTemperature(0.5F)
+                    .withTemperature(temperature)
                     .build()));
             response = chatResponse.getResult().getOutput().getContent();
         } catch (Exception ex) {
