@@ -1,4 +1,4 @@
-package kr.aisawan.SpringAi.configuration;
+package kr.aisawan.SpringAi.config;
 
 import lombok.Getter;
 import org.springframework.ai.chat.client.ChatClient;
